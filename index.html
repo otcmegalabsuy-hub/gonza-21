@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Los 21 de Gonza</title>
+<meta name="description" content="Sábado 28 de noviembre · 12 hs · Altos de la Tahona, Casa F7 · ¡Show en vivo!">
+<meta name="theme-color" content="#0A1E4A">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icono.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://otcmegalabsuy-hub.github.io/gonza-21/">
+<meta property="og:title" content="Los 21 de Gonza">
+<meta property="og:description" content="Sábado 28 de noviembre · 12 hs · Altos de la Tahona, Casa F7 · ¡Show en vivo!">
+<meta property="og:image" content="https://otcmegalabsuy-hub.github.io/gonza-21/vista-previa.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_UY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://otcmegalabsuy-hub.github.io/gonza-21/vista-previa.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;800;900&display=swap">
+<style>
+:root {
+  --bg: #0A1E4A;
+  --ink: #FFFFFF;
+  --yellow: #FFD23F;
+  --navy: #0A1E4A;
+  --turq: #5CF2E6;
+  --card: #071537;
+  color-scheme: dark;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0A1E4A; --ink: #FFFFFF; --card: #071537; }
+}
+:root[data-theme="dark"] { --bg: #0A1E4A; --ink: #FFFFFF; --card: #071537; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); background: var(--bg); }
+.fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--bg) url('fondo-agua.jpg') center / cover no-repeat;
+}
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(4, 18, 48, 0.15) 0%, rgba(4, 18, 48, 0.45) 60%, rgba(4, 18, 48, 0.8) 100%);
+}
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  padding: 16px 16px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card);
+  border: 2px solid rgba(92, 242, 230, 0.55);
+  box-shadow: 0 0 28px rgba(92, 242, 230, 0.28), 0 18px 50px rgba(0, 0, 0, 0.4);
+}
+video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  background: rgba(7, 21, 55, 0.35);
+  cursor: pointer;
+}
+.play[hidden] { display: none; }
+.play span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.botones { display: flex; flex-direction: column; gap: 12px; }
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 0 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+}
+.btn svg { flex: none; }
+.btn-mapa { background: var(--ink); color: var(--navy); }
+.btn-ok { background: var(--yellow); color: var(--navy); }
+button.btn { width: 100%; border: 0; cursor: pointer; font-family: inherit; }
+.btn-ok[aria-expanded="true"] { box-shadow: 0 0 0 3px rgba(255, 210, 63, 0.35); }
+.opciones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.opciones[hidden] { display: none; }
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--ink);
+  background: rgba(7, 21, 55, 0.6);
+  border: 2px solid var(--yellow);
+}
+.chip:focus-visible { outline: 3px solid var(--turq); outline-offset: 3px; }
+button.chip { font-family: inherit; cursor: pointer; }
+.chip-full { grid-column: 1 / -1; }
+.chip[aria-expanded="true"] { background: rgba(255, 210, 63, 0.16); }
+.mi-panel { display: flex; flex-direction: column; gap: 10px; }
+.mi-panel[hidden] { display: none; }
+.mi-panel textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 2px solid rgba(92, 242, 230, 0.45);
+  background: rgba(7, 21, 55, 0.6);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  resize: vertical;
+}
+.mi-panel textarea::placeholder { color: rgba(255, 255, 255, 0.5); }
+.mi-panel textarea:focus-visible { outline: 3px solid var(--turq); outline-offset: 2px; }
+.respuesta[hidden] { display: none; }
+.respuesta { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.env { align-self: flex-end; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; max-width: 88%; animation: pop 0.35s ease-out both; }
+.b-env {
+  padding: 11px 14px 8px 16px;
+  border-radius: 18px 18px 6px 18px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1.3;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+.b-env .meta { display: flex; justify-content: flex-end; align-items: center; gap: 5px; margin-top: 4px; font-size: 12px; font-weight: 700; color: rgba(10, 30, 74, 0.65); }
+.ticks { display: block; }
+.ticks path { fill: none; stroke: rgba(10, 30, 74, 0.55); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 16; stroke-dashoffset: 16; transition: stroke-dashoffset 0.28s ease-out, stroke 0.35s ease; }
+.ticks .t1 { stroke-dashoffset: 0; }
+.ticks.doble .t2 { stroke-dashoffset: 0; }
+.ticks.leido path { stroke: #0A6E8C; }
+.env-label { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; letter-spacing: 0.5px; color: var(--turq); opacity: 0; transform: translateY(-4px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.env-label.on { opacity: 1; transform: none; }
+.typing[hidden] { display: none; }
+.typing { align-self: flex-start; display: flex; align-items: center; gap: 5px; padding: 12px 16px; border-radius: 18px 18px 18px 6px; background: rgba(7, 21, 55, 0.78); border: 2px solid rgba(92, 242, 230, 0.4); animation: pop 0.25s ease-out both; }
+.typing span { width: 8px; height: 8px; border-radius: 50%; background: var(--turq); animation: dot 1s infinite ease-in-out; }
+.typing span:nth-child(2) { animation-delay: 0.15s; }
+.typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes dot { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
+.burbuja[hidden] { display: none; }
+.burbuja { align-self: flex-start; animation: pop 0.35s ease-out both; }
+.burbuja {
+  max-width: 92%;
+  padding: 14px 18px 15px;
+  border-radius: 18px 18px 18px 6px;
+  background: rgba(7, 21, 55, 0.78);
+  border: 2px solid rgba(92, 242, 230, 0.6);
+  box-shadow: 0 0 22px rgba(92, 242, 230, 0.25);
+  color: var(--ink);
+  line-height: 1.3;
+}
+.burbuja .r1 { font-weight: 800; font-size: 18px; }
+.burbuja .r2 { font-weight: 900; font-size: 22px; margin-top: 6px; letter-spacing: 0.3px; }
+.burbuja .r3 { font-weight: 800; font-size: 18px; margin-top: 6px; color: var(--yellow); }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(0.97); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .env, .burbuja, .typing { animation: none; } .typing span { animation: none; opacity: 0.8; } }
+.btn:focus-visible, .play:focus-visible { outline: 3px solid var(--turq); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<div class="fondo" aria-hidden="true"></div>
+<main>
+  <div class="video-wrap">
+    <video id="video" playsinline preload="auto" poster="portada.jpg" src="video.mp4"></video>
+    <button class="play" id="play" type="button" aria-label="Ver la invitación con sonido">
+      <span>
+        <svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M1 1 L15 9 L1 17 Z" fill="#0A1E4A"/></svg>
+        Ver invitación
+      </span>
+    </button>
+  </div>
+  <nav class="botones" aria-label="Acciones">
+    <a class="btn btn-mapa" href="https://maps.app.goo.gl/4c6CTYL5Uv7o72Pz7" target="_blank" rel="noopener">
+      <svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true"><path d="M10 1C5.03 1 1 4.95 1 9.8 1 16.4 10 23 10 23s9-6.6 9-13.2C19 4.95 14.97 1 10 1Zm0 12.3a3.4 3.4 0 1 1 0-6.8 3.4 3.4 0 0 1 0 6.8Z" fill="#0A1E4A"/></svg>
+      Cómo llegar
+    </a>
+    <button class="btn btn-ok" id="msgBtn" type="button" aria-expanded="false" aria-controls="opciones">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2C5.75 2 1.6 5.7 1.6 10.3c0 2.5 1.25 4.75 3.25 6.25L4 20.2l4.15-2.05c.9.22 1.85.35 2.85.35 5.25 0 9.4-3.7 9.4-8.2S16.25 2 11 2Z" fill="#0A1E4A"/><circle cx="7" cy="10.3" r="1.35" fill="#FFD23F"/><circle cx="11" cy="10.3" r="1.35" fill="#FFD23F"/><circle cx="15" cy="10.3" r="1.35" fill="#FFD23F"/></svg>
+      ¡Mandale un mensaje a Gonza!
+    </button>
+    <div class="opciones" id="opciones" hidden>
+      <a class="chip" href="https://wa.me/59893508053?text=%2AEstoy%20para%20el%20cumple%20de%20Gonza%20%21%21%21%2A" target="_blank" rel="noopener">¡Estoy!</a>
+      <a class="chip" href="https://wa.me/59893508053?text=%2AVoy%20al%20cumple%20de%20Gonza%20%21%21%21%2A" target="_blank" rel="noopener">¡Voy!</a>
+      <a class="chip" href="https://wa.me/59893508053?text=%2AMe%20prendo%20al%20cumple%20de%20Gonza%20%21%21%21%2A" target="_blank" rel="noopener">Me prendo</a>
+      <a class="chip" href="https://wa.me/59893508053?text=%2ACont%C3%A1%20conmigo%20para%20el%20cumple%20de%20Gonza%20%21%21%21%2A" target="_blank" rel="noopener">Contá conmigo</a>
+      <button class="chip chip-full" id="miBtn" type="button" aria-expanded="false" aria-controls="miPanel">Mi mensaje</button>
+    </div>
+    <div class="mi-panel" id="miPanel" hidden>
+      <textarea id="miTexto" maxlength="500" placeholder="Escribile algo a Gonza…" aria-label="Tu mensaje para Gonza"></textarea>
+      <a class="btn btn-ok" id="miEnviar" href="https://wa.me/59893508053" target="_blank" rel="noopener">Enviar a Gonza</a>
+    </div>
+    <div class="respuesta" id="respuesta" role="status" hidden>
+      <div class="env">
+        <div class="b-env"><span id="envTexto"></span><span class="meta"><span id="envHora"></span><svg class="ticks" id="ticks" width="20" height="12" viewBox="0 0 20 12" aria-hidden="true"><path class="t1" d="M1.5 6.5 4.8 9.8 11.5 2.5"/><path class="t2" d="M7.2 9.4 7.6 9.8 14.3 2.5"/></svg></span></div>
+        <div class="env-label" id="envLabel"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6.2" fill="none" stroke="#5CF2E6" stroke-width="1.6"/><path d="M4.2 7.2 6.2 9.1 9.9 5" fill="none" stroke="#5CF2E6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Enviado a Gonza</div>
+      </div>
+      <div class="typing" id="typing" aria-label="Gonza está escribiendo" hidden><span></span><span></span><span></span></div>
+      <div class="burbuja" id="reply" hidden>
+        <div class="r1">¡Genial, ya estás en la lista! 🏉</div>
+        <div class="r2">Los 21 de Gonza</div>
+        <div class="r3">¡Show en vivo! Te esperooo</div>
+      </div>
+    </div>
+  </nav>
+</main>
+<script>
+(function () {
+  var v = document.getElementById('video');
+  var b = document.getElementById('play');
+  function start() {
+    try { v.currentTime = 0; } catch (e) {}
+    v.muted = false;
+    var p = v.play();
+    if (p && p.catch) { p.catch(function () { b.hidden = false; }); }
+    b.hidden = true;
+  }
+  b.addEventListener('click', start);
+  v.addEventListener('click', function () {
+    if (v.paused) { v.play(); } else { v.pause(); }
+  });
+  v.addEventListener('ended', function () { b.hidden = false; });
+  var mb = document.getElementById('msgBtn');
+  var op = document.getElementById('opciones');
+  mb.addEventListener('click', function () {
+    var abrir = op.hidden;
+    op.hidden = !abrir;
+    mb.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+  });
+  var NUM = '59893508053';
+  var miBtn = document.getElementById('miBtn');
+  var miPanel = document.getElementById('miPanel');
+  var miTexto = document.getElementById('miTexto');
+  var miEnviar = document.getElementById('miEnviar');
+  var resp = document.getElementById('respuesta');
+  var envTexto = document.getElementById('envTexto');
+  var envHora = document.getElementById('envHora');
+  var ticks = document.getElementById('ticks');
+  var envLabel = document.getElementById('envLabel');
+  var typing = document.getElementById('typing');
+  var reply = document.getElementById('reply');
+  var pendiente = null;
+  var timers = [];
+  function hora() { var d = new Date(); return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); }
+  function guardar(t, h) { try { localStorage.setItem('gonza21-enviado', '1'); localStorage.setItem('gonza21-msg', t); localStorage.setItem('gonza21-hora', h); } catch (e) {} }
+  function estadoFinal(t, h) {
+    envTexto.textContent = t; envHora.textContent = h;
+    ticks.classList.add('doble', 'leido'); envLabel.classList.add('on');
+    typing.hidden = true; reply.hidden = false; resp.hidden = false;
+  }
+  function secuencia(t, h) {
+    timers.forEach(clearTimeout); timers = [];
+    envTexto.textContent = t; envHora.textContent = h;
+    ticks.classList.remove('doble', 'leido'); envLabel.classList.remove('on');
+    typing.hidden = true; reply.hidden = true; resp.hidden = false;
+    try { resp.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+    timers.push(setTimeout(function () { ticks.classList.add('doble'); }, 450));
+    timers.push(setTimeout(function () { ticks.classList.add('leido'); envLabel.classList.add('on'); }, 950));
+    timers.push(setTimeout(function () { typing.hidden = false; }, 1400));
+    timers.push(setTimeout(function () { typing.hidden = true; reply.hidden = false; }, 2700));
+  }
+  function enviado(texto) {
+    var t = (texto || '').replace(/\*/g, '').trim() || 'Mensaje para Gonza';
+    var h = hora();
+    guardar(t, h);
+    setTimeout(function () {
+      if (document.hidden) { pendiente = [t, h]; } else { secuencia(t, h); }
+    }, 350);
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && pendiente) { var p = pendiente; pendiente = null; setTimeout(function () { secuencia(p[0], p[1]); }, 300); }
+  });
+  function textoDe(a) {
+    try { return decodeURIComponent((a.getAttribute('href').split('text=')[1] || '')); } catch (e) { return ''; }
+  }
+  miBtn.addEventListener('click', function () {
+    var abrir = miPanel.hidden;
+    miPanel.hidden = !abrir;
+    miBtn.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+    if (abrir) { try { miTexto.focus(); } catch (e) {} }
+  });
+  miTexto.addEventListener('input', function () {
+    var t = miTexto.value.trim();
+    miEnviar.href = 'https://wa.me/' + NUM + (t ? '?text=' + encodeURIComponent(t) : '');
+  });
+  miEnviar.addEventListener('click', function () { enviado(miTexto.value); });
+  Array.prototype.forEach.call(document.querySelectorAll('.opciones a.chip'), function (a) {
+    a.addEventListener('click', function () { enviado(textoDe(a)); });
+  });
+  try {
+    if (localStorage.getItem('gonza21-enviado') === '1') {
+      estadoFinal(localStorage.getItem('gonza21-msg') || 'Mensaje para Gonza', localStorage.getItem('gonza21-hora') || '');
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
